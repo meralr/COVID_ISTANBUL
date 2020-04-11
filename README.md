@@ -6,5 +6,5 @@ Please contact rasimcanmeral@gmail.com and/or nacisenkal@gmail.com for more info
 We are open to international collaborations.
 
 
-# Data will be made available once the paper is accepted.
+We are working on the draft of the paper and the data will be made available once the paper is sent for review.
 
