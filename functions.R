@@ -119,3 +119,5 @@ probs2 <- function(varx = "Hypertension.history", vary="ICU_yesno", mydata = dis
            colnames(t)[2])
   return(klm)
 }
+
+           
