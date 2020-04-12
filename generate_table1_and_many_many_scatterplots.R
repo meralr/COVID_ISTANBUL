@@ -93,7 +93,7 @@ table1 <- function(indep = "ICU_yesno", mydata = disc_or_icu){
 }
 print(table1())
 t <- table1()
-write.csv(t, file = "t.csv")
+write.csv(t, file = "table1.csv")
 
 
 ######## GENERATE AND SAVE MANY MANY GRAPHS FOR THE EXPLORATION OF DATA (POST-HOC ANALYSES) #########
