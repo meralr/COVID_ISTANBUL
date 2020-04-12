@@ -109,5 +109,5 @@ parametric_columns <- c("age", "BMI", "Days.hospitalized", "Days.from.first.symp
 dir.create("output") # creates an output folder for the graphs to be generated
 sapply(parametric_columns, function(x)prism_plot(x, "ICU_yesno", save_graph=T))
 
-#### The graphs are now in the output folder. Good luck and stay healthy!
+#### The graphs are now in the output folder. Good luck!
 
