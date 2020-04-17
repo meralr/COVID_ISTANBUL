@@ -117,7 +117,7 @@ epitab(table(disc_or_icu$Dyspnea, disc_or_icu$ICU_yesno))
 #### Odds Ratio of Respiratory Rate >= 22
 table(disc_or_icu$Respiratory.Rate>=22, disc_or_icu$ICU_yesno)
 epitab(table(disc_or_icu$Respiratory.Rate>=22, disc_or_icu$ICU_yesno)) # I tuned this manually to maximize the odds ratio
-prism_plot("Respiratory.Rate", varx = "ICU_yesno", new_device =F) #### Plotting the Respiratory Rate
+prism_plot("Respiratory.Rate", varx = "ICU_yesno") #### Plotting the Respiratory Rate
 densitycurves("Respiratory.Rate", data = disc_or_icu)
 
 #### Odds Ratios of Comorbidities:
