@@ -6,7 +6,7 @@
 
 ###### HISTOGRAM ########
 densitycurves <- function(varx, data = covdata, hist=TRUE,
-                          groups = "iCU_yesno", delete_title=T,
+                          groups = "outcome", delete_title=T,
                           start_from_zero = F, bin_count = 10, breaks_custom=waiver()){
   # Custom function that creates histogram and superimposes a density curve using ggplot2
   require(ggplot2)
@@ -37,11 +37,10 @@ densitycurves <- function(varx, data = covdata, hist=TRUE,
 
 ######## SCATTERPLOT ########
 prism_plot <- function(vary, varx , mydata = covdata, 
-                       colx = "iCU_yesno", log_scale=F, 
+                       colx = "outcome_category", log_scale=F, 
                        central_tendency = "median", title_add = T, new_device = F, save_graph=F,
                        remove_outliers = F, custom_dir="output/"){
   # Custom function that creates scatterplots in a similar format to what we did in Graphpad Prism
-  print(vary)
   library(ggplot2)
   g <- ggplot(mydata, aes_(mydata[,varx], mydata[,vary], col = mydata[,colx]))
   if(log_scale==T){
