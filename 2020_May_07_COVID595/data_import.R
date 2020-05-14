@@ -1,7 +1,7 @@
 # Data import script
 
 #### DATA IMPORT ####
-impdata <- read.csv("COVID_DATA 07.05.20.csv", stringsAsFactors = F, row.names = 1) #import dataset
+impdata <- read.csv("COVID_ISTANBUL_DATA_2020_05_07.csv", stringsAsFactors = F, row.names = 1) #import dataset
 dim(impdata) # Should have 499 rows 26.April.2020
 
 impdata[impdata==""] <- NA
@@ -63,12 +63,14 @@ impdata$Hypertension_history <- factor(impdata$Hypertension_history, levels = c(
 impdata$ACEi <- factor(impdata$ACEi, levels = c(0,1), labels = c("other or ARB", "ACEi"))
 impdata$ARB <- factor(impdata$ARB, levels = c(0,1), labels = c("other or ACEi", "ARB"))
 impdata$Spironolactone <- factor(impdata$Spironolactone, levels = c(0,1), labels = c("other", "Spironolactone"))
-impdata$ARB_or_ACEi <- ifelse(impdata$ARB=="ARB" & impdata$ACEi=="ACEi","ARB and ACEi",
+impdata$exposure <- ifelse(impdata$ARB=="ARB" & impdata$ACEi=="ACEi","ARB and ACEi",
                               ifelse(impdata$ARB=="ARB", "ARB",
                                      ifelse(impdata$ACEi=="ACEi", "ACEi",
                                             ifelse(impdata$Spironolactone=="Spironolactone","Spironolactone",
                                                    ifelse(impdata$Hypertension_history=="yes", "Other", "")))))
-impdata$ARB_or_ACEi <- factor(impdata$ARB_or_ACEi)
+impdata$exposure <- factor(impdata$exposure, 
+                              levels = c("Other", "ARB", "ACEi", "ARB and ACEi", "Spironolactone"), 
+                              labels = c("Other", "ARB", "ACEi", "ARB and ACEi", "Spironolactone"))
 impdata$RAAS <- ifelse(impdata$ARB =="ARB" | impdata$ACEi=="ACEi" | impdata$Spironolactone == "Spironolactone",
                        "RAAS",
                        ifelse(impdata$Hypertension_history=="yes", "Other", ""))
