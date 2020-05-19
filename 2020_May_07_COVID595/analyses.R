@@ -11,7 +11,7 @@ dim(impdata)
 
 ### DEFINING THE OUTCOME VARIABLE ###
 impdata$outcome <- as.factor(ifelse(impdata$iCU_yesno=="yes", "severe", 
-                                    ifelse(impdata$Ex==1, "severe",
+                                    ifelse(impdata$Ex=="Excitus", "severe",
                                            ifelse(impdata$Days_hospitalized_on_day_x > 14, "severe",
                                                   ifelse(impdata$Taburcu==1, "not severe", "did not reach endpoint")))))
 
